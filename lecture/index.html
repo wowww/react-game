@@ -10,24 +10,31 @@
   <script type="text/babel">
     // const e = React.createElement;
 
-    class LikeButton extends React.Component {
+    class GuGuDan extends React.Component {
       constructor(props) {
         super(props);
         this.state = {
-          liked: false,
+          firstNumber: Math.ceil(Math.random() * 9),
+          secondNumber: Math.ceil(Math.random() * 9),
+          value: '',
+          result: '',
         }
       }
       render() {
         return (
-          <button type="submit" onClick={() => {this.setState({ liked: true })}}>
-            {this.state.liked === true ? 'Liked' : 'Like'}
-          </button>
+          <div>
+            <div>{this.state.firstNumber}곱하기 {this.state.secondNumber}는?</div>
+            <form>
+              <input type="number" />
+              <button>입력</button>
+            </form>
+          </div>
         )
       }
     }
   </script>
   <script type="text/babel">
-    ReactDOM.render(<div><LikeButton /></div>, document.querySelector('#root'));
+    ReactDOM.render(<div><GuGuDan /></div>, document.querySelector('#root'));
   </script>
 </body>
 </html>
