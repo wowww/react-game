@@ -26,7 +26,22 @@
         return (
           <div>
             <div>{this.state.firstNumber}곱하기 {this.state.secondNumber}는?</div>
-            <form>
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              if(parseInt(value) === this.state.firstNumber * this.state.secondNumber){
+                this.setState({
+                  result: '정답',
+                  firstNumber: Math.ceil(Math.rendom() * 9),
+                  secondNumber: Math.ceil(Math.rendom() * 9),
+                  value: '',
+                })
+              } else {
+                this.setState({
+                  result: '땡',
+                  value: '',
+                })
+              }
+            }}>
               <input type="number" value={this.state.value} onChange={(e)=>this.setState({value: e.target.value})} />
               <button>입력</button>
             </form>
